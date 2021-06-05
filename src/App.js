@@ -24,10 +24,15 @@ function App() {
     },
   ]);
 
+  const deleteTask = id => {
+    console.log('delete', id);
+    setTasks(tasks.filter(task => task.id !== id));
+  };
+
   return (
     <div className="container">
       <Header></Header>
-      <Tasks tasks={tasks}></Tasks>
+      <Tasks onDelete={deleteTask} tasks={tasks}></Tasks>
     </div>
   );
 }
